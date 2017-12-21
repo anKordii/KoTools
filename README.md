@@ -1,34 +1,34 @@
 ##Do czego ten plugin służy?
 
-Możliwość manipulacji czatem
+● Możliwość manipulacji czatem
 
-Blokowanie rozlewania się lawy i wody
+● Blokowanie rozlewania się lawy i wody
 
-Zmiana Motd serwera
+● Zmiana Motd serwera
 
-Generator kamienia
+● Generator kamienia
 
-Anty-Logout
+● Anty-Logout
 
-Komendy (vip, pomoc, etc)
+● Komendy (vip, pomoc, etc)
 
-Zmiana ilosci graczy serwera
+● Zmiana ilosci graczy serwera
 
-(Nie dostępne) Zmiana ikony serwera
+● (Nie dostępne) Zmiana ikony serwera
 
-Automatyczne wiadomosci
+● Automatyczne wiadomosci
 
 #Informacje
 
-Plugin napisany na Javę 1.8
+● Plugin napisany na Javę 1.8
 
-Wersja obslugiwanego silniku 1.8 - 1.8.8
+● Wersja obslugiwanego silniku 1.8 - 1.8.8
 
-Plugin napisany w środowisku inteliJ idea 2016
+● Plugin napisany w środowisku inteliJ idea 2016
 
 ##Komedy
 
-/chat - glówna komęda zarządzania chtem
-/inftools - informacje o pluginie
+● /chat - glówna komęda zarządzania chtem
+● /pomoc - pomocne komendy
 
 ##Pobieranie
