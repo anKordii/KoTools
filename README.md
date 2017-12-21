@@ -30,5 +30,3 @@
 
 ● /chat - glówna komęda zarządzania chtem
 ● /pomoc - pomocne komendy
-
-##Pobieranie
