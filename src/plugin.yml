@@ -1,0 +1,33 @@
+name: KoTools
+version: 1.0.9r
+author: [Paulek22, Kordii]
+main: net.kordii.code.Main
+
+commands:
+ chat:
+ pomoc:
+   aliases: [help, ehelp]
+ vip:
+   aliases: [evip]
+ svip:
+   aliases: [esvip]
+ pl:
+   aliases: [epl]
+ plugins:
+   aliases: [eplugins]
+ fg:
+   aliases: [efg]
+ funnyguilds:
+   aliases: [efunnyguilds]
+ ver:
+   aliases: [ever]
+ ?:
+ bukkit::me:
+ g:
+   aliases: [gildia]
+ me:
+   aliases: [eme]
+ sklep:
+   aliases: [rangi, shop, ranks]
+ dragoncase:
+    aliases: [premiumcase, case]

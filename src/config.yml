@@ -1,0 +1,50 @@
+#Plik configu do pluginu KoTools
+
+#Czy wlaczyc funkce kontrolu nad chatem true - tak/falne - nie
+enableChatControl: true
+
+#Wlancza uderzenie piorunem po smierci gracza true - tak/falne - nie
+enableLightning: true
+
+#Czy wlaczyc uzywanie motd z poziomu pluginu
+useMotd: true
+
+#Wiadomosc motd
+msgMotd: '&6&lDragon&e&lHard&7&l.pl &dSwiateczna Edycja &b&lStart: &727.12.2017 18:00 &bfb.com/dragonhardeu &7Wszelkie informacje na facebooku!'
+
+#Czy wlaczyc ustawianie ilosci graczy (nie prawdziwe)
+useFakePlayers: true
+
+#Liczba graczy fake
+fakePlayers: 5
+
+#Czy uzywac ikony serwera
+useServerIcon: true
+
+#Czy wlaczyc automatycze wiadomosci true - tak/falne - nie
+enableAutoMsg: true
+
+#Czas generacji stone
+stoneGeneratorTimeToRegenerate: 20
+
+#Czas po ktorej wlanczasie kolejna wiadomosc
+autoMsgTime: 120
+listMsg:
+  - '&8[&6DragonHard&8] &fSerwer glosowy &8: &6TS.DRAGONHARD.EU'
+  - '&8[&6DragonHard&8] &fNie chce ci sie kopac ? Zakup range na &6https://dragonhard.eu &f! Wiecej pod &6/rangi'
+  - '&8[&6DragonHard&8] &fBorder mapy wynosi &61500x1500'
+  - '&8[&6DragonHard&8] &fNie chce ci sie kopac ? Zakup range na &6https://dragonhard.eu &f! Wiecej pod &6/rangi'
+  - '&8[&6DragonHard&8] &fLubisz caseopeningi?? &6mamy dla idealna oferte DragonCase zakupisz na &fhttps://dragonhard.eu'
+  
+      
+
+
+
+##########################
+#                        #
+# Funkcje nie dokonczone #
+#                        #
+##########################
+
+#Czy ma automatycznie przenosic w random kordy
+randomowe_miejsce_po_wejsciu: true
