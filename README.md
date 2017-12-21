@@ -29,4 +29,5 @@
 ##Komedy
 
 ● /chat - glówna komęda zarządzania chtem
+
 ● /pomoc - pomocne komendy
