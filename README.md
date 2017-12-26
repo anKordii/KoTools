@@ -32,23 +32,23 @@
 
 <h1>Informacje</h1>
 
-● Plugin napisany na Javę 1.8
+<li> Plugin napisany na Javę 1.8</li>
 
-● Wersja obslugiwanego silniku 1.8 - 1.12.1
+<li> Wersja obslugiwanego silniku 1.8 - 1.12.1</li>
 
-● Plugin napisany w środowisku inteliJ idea 2016
+<li> Plugin napisany w środowisku inteliJ idea 2016</li>
 
 <h1>Komendy</h1>
 
-● /chat - glówna komęda zarządzania chatem
+<li> /chat - glówna komęda zarządzania chatem</li>
 
-● /case - glówna komęda zarządzania rozdawaniem skrzynek [NEW]</font>
+<li> /case - glówna komęda zarządzania rozdawaniem skrzynek [NEW]</font></li>
 
-● /itemshop - glówna komęda zarządzania wiadomosciami ze sklepu [NEW]</font>
+<li> /itemshop - glówna komęda zarządzania wiadomosciami ze sklepu [NEW]</font></li>
 
-● /autor - komenda z informacjami o autorze [NEW]</font>
+<li> /autor - komenda z informacjami o autorze [NEW]</font></li>
 
-● /pomoc - pomocne komendy
+<li> /pomoc - pomocne komendy</li>
 
 <h1>Download</h1>
 
