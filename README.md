@@ -49,3 +49,7 @@
 ● /autor - komenda z informacjami o autorze [NEW]
 
 ● /pomoc - pomocne komendy
+
+##Download
+
+Release: 
