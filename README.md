@@ -52,4 +52,4 @@
 
 ##Download
 
-Release: http://www47.zippyshare.com/v/v3wslEtF/file.html
+Release: <a href="http://www47.zippyshare.com/v/v3wslEtF/file.html">Download</a>
