@@ -1,8 +1,8 @@
 <h1>Do czego ten plugin służy?</h1>
 
-● Możliwość manipulacji czatem
+<li> Możliwość manipulacji czatem</li>
 
-● Blokowanie rozlewania się lawy i wody
+<li> Blokowanie rozlewania się lawy i wody</li>
 
 ● Blokowanie craftingu diamentowych rzeczy (zbroja, miecz) [NEW]
 
