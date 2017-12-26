@@ -1,4 +1,4 @@
-***##Do czego ten plugin służy?
+<h1>##Do czego ten plugin służy?</h1>
 
 ● Możliwość manipulacji czatem
 
