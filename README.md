@@ -1,4 +1,4 @@
-<h1>##Do czego ten plugin służy?</h1>
+<h1>Do czego ten plugin służy?</h1>
 
 ● Możliwość manipulacji czatem
 
@@ -30,7 +30,7 @@
 
 ● Automatyczne wiadomosci
 
-#Informacje
+<h1>Informacje</h1>
 
 ● Plugin napisany na Javę 1.8
 
@@ -38,7 +38,7 @@
 
 ● Plugin napisany w środowisku inteliJ idea 2016
 
-##Komedy
+<h1>Komendy</h1>
 
 ● /chat - glówna komęda zarządzania chatem
 
@@ -50,6 +50,6 @@
 
 ● /pomoc - pomocne komendy
 
-##Download
+<h1>Download</h1>
 
 Release: <a href="http://www47.zippyshare.com/v/v3wslEtF/file.html">Download</a>
