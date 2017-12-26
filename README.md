@@ -4,31 +4,31 @@
 
 <li> Blokowanie rozlewania się lawy i wody</li>
 
-● Blokowanie craftingu diamentowych rzeczy (zbroja, miecz) [NEW]
+<li> Blokowanie craftingu diamentowych rzeczy (zbroja, miecz) <font color=red>[NEW]</li></font>
 
-● Random Tp [NEW] 
+<li> Random Tp [NEW] </li>
 
-● Crafting Golden Apple z samorodków [NEW]
+<li> Crafting Golden Apple z samorodków <font color=red>[NEW]</li></font>
 
-● Zmiana Motd serwera
+<li> Zmiana Motd serwera</li>
 
-● PremiumCase [NEW] 
+<li> PremiumCase [NEW] </li>
 
-● Blokowanie komend typu "/plugins, /ver, //calc, etc" [NEW]
+<li> Blokowanie komend typu "/plugins, /ver, //calc, etc" <font color=red>[NEW]</li></font>
 
-● Komendy wyswietlajace np "Gracz ~eJDEK zakupil vipa" [NEW]
+<li> Komendy wyswietlajace np "Gracz ~eJDEK zakupil vipa" <font color=red>[NEW]</li></font>
 
-● Generator kamienia
+<li> Generator kamienia</li>
 
-● Anty-Logout
+<li> Anty-Logout</li>
 
-● Komendy (vip, pomoc, etc)
+<li> Komendy (vip, pomoc, etc)</li>
 
-● Zmiana ilosci graczy serwera
+<li> Zmiana ilosci graczy serwera</li>
 
-● (Nie dostępne) Zmiana ikony serwera
+<li> (Nie dostępne) Zmiana ikony serwera</li>
 
-● Automatyczne wiadomosci
+<li> Automatyczne wiadomosci</li>
 
 <h1>Informacje</h1>
 
@@ -42,11 +42,11 @@
 
 ● /chat - glówna komęda zarządzania chatem
 
-● /case - glówna komęda zarządzania rozdawaniem skrzynek [NEW]
+● /case - glówna komęda zarządzania rozdawaniem skrzynek [NEW]</font>
 
-● /itemshop - glówna komęda zarządzania wiadomosciami ze sklepu [NEW]
+● /itemshop - glówna komęda zarządzania wiadomosciami ze sklepu [NEW]</font>
 
-● /autor - komenda z informacjami o autorze [NEW]
+● /autor - komenda z informacjami o autorze [NEW]</font>
 
 ● /pomoc - pomocne komendy
 
