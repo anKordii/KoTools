@@ -1,4 +1,4 @@
-##Do czego ten plugin służy?
+***##Do czego ten plugin służy?
 
 ● Możliwość manipulacji czatem
 
