@@ -53,3 +53,5 @@
 <h1>Download</h1>
 
 Release: <a href="http://www47.zippyshare.com/v/v3wslEtF/file.html">Download</a>
+
+<img src="https://i.imgur.com/gGRCfKa.png">
