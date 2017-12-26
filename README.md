@@ -14,7 +14,7 @@
 
 ● PremiumCase [NEW] 
 
-● Blokowanie komend typu "/plugins, /ver, //calc, etc"
+● Blokowanie komend typu "/plugins, /ver, //calc, etc" [NEW]
 
 ● Komendy wyswietlajace np "Gracz ~eJDEK zakupil vipa" [NEW]
 
@@ -42,10 +42,10 @@
 
 ● /chat - glówna komęda zarządzania chatem
 
-● /case - glówna komęda zarządzania rozdawaniem skrzynek
+● /case - glówna komęda zarządzania rozdawaniem skrzynek [NEW]
 
-● /itemshop - glówna komęda zarządzania wiadomosciami ze sklepu
+● /itemshop - glówna komęda zarządzania wiadomosciami ze sklepu [NEW]
 
-● /autor - komenda z informacjami o autorze
+● /autor - komenda z informacjami o autorze [NEW]
 
 ● /pomoc - pomocne komendy
