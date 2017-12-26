@@ -1,6 +1,7 @@
 package net.kordii.code;
 
 import net.kordii.code.listeners.*;
+import net.kordii.code.cmd.*;
 import net.kordii.code.Chat.*;
 import net.kordii.code.RandomTp.*;
 import net.kordii.code.cmd.toolsCommand;
@@ -50,8 +51,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -123,7 +127,9 @@ implements Listener{
 	  Slow slow;
 	  Pisanie pisanie;
 	  RandomTp randomtp;
+	  
     private static Main instance;
+
     public static Main getInstance;
     public HashMap<String, Long> taggedPlayers = new HashMap();
     public static WorldGuardPlugin getWorldGuard()
@@ -137,9 +143,11 @@ implements Listener{
     
     @Override
     public void onEnable(){
-        getServer().getPluginManager().registerEvents(this, this);
-        enableTimer();
         
+    	getServer().getPluginManager().registerEvents(this, this);
+        enableTimer();
+		
+		
         getInstance = this;
         
         List<String> lore = new ArrayList();
@@ -161,13 +169,35 @@ implements Listener{
           .setIngredient('D', Material.REDSTONE)
           .setIngredient('E', Material.DIAMOND);
         getServer().addRecipe(stonegenerator);
+            
+        
+        ItemStack ga = new ItemStack(Material.GOLDEN_APPLE, 1);
+        
+        ShapedRecipe goldenapple = new ShapedRecipe(ga).shape(new String[] {
+          "AAA", 
+          "ABA", 
+          "AAA" })
+          .setIngredient('A', Material.GOLD_NUGGET)
+          .setIngredient('B', Material.APPLE);
+        getServer().addRecipe(goldenapple);
+        
+        ItemStack ec = new ItemStack(Material.ENDER_CHEST, 1);
+        
+        ShapedRecipe enderchest = new ShapedRecipe(ec).shape(new String[] {
+          "AAA", 
+          "ABA", 
+          "AAA" })
+          .setIngredient('A', Material.OBSIDIAN)
+          .setIngredient('B', Material.ENDER_PEARL);
+        getServer().addRecipe(enderchest);
         
         registerEvents(this, new Listener[] { new Break() });
         registerEvents(this, new Listener[] { new Place() });
         
     	
         instance = this;
-
+        
+		Bukkit.getPluginManager().registerEvents(new Listenery(), this);
         Bukkit.getPluginManager().registerEvents(new BlocadeListeners(), this);
         this.getServer().getPluginManager().registerEvents(new onPing(), this);
         this.getServer().getPluginManager().registerEvents(new onDeath(), this);
@@ -186,6 +216,7 @@ implements Listener{
         this.getCommand("g").setExecutor(new toolsCommand());
         this.getCommand("me").setExecutor(new toolsCommand());
         this.getCommand("sklep").setExecutor(new toolsCommand());
+        getCommand("itemshop").setExecutor(new Ranks());
 		getCommand("dragoncase").setExecutor(new CaseCmd());
         List msgs = (getConfig().getStringList("listMsg"));
         autoMsg.startMsg(msgs);
@@ -211,6 +242,16 @@ implements Listener{
         getLogger().info(">>> Plugin koTools zostal wylaczony na wersje 1.8.8");
         
     }
+    public List<Player> getPlayersInRadius(Location location, int size)
+    {
+    List<Player> players = new ArrayList();
+    for (Player p : location.getWorld().getPlayers()) {
+      if (location.distance(p.getLocation()) <= size) {
+        players.add(p);
+      }
+    }
+    return players;
+    }
 
     public static Main getInst(){
         return instance;
@@ -226,6 +267,8 @@ implements Listener{
         Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
       }
     }
+    
+
     
 /*
  * AntyLogout
@@ -462,6 +505,125 @@ implements Listener{
           
           
         }
+      }
+    }
+    
+    @EventHandler
+    public void playerCmdPre(PlayerCommandPreprocessEvent event)
+    {
+      String command = event.getMessage().toLowerCase();
+      Player player = event.getPlayer();
+      if (!player.hasPermission("kotools.admin.cmd"))
+    	  {
+        if ((command.matches("/pl")) || (command.matches("/plugins")) || (command.matches("/ver")) || 
+          (command.matches("/version")) || (command.equals("/?")))
+        {
+          event.setCancelled(true);
+          player.sendMessage("§8» §cBrak dostepu do tej komendy §7(core.cmd).");
+        }
+        if ((command.startsWith("/bukkit")) || (command.startsWith("/spigot")) || (command.startsWith("/minecraft")) || (command.startsWith("//calculate")) || (command.startsWith("//calc")) || (command.startsWith("//eval")) || (command.startsWith("//evaluate")) || (command.startsWith("//solve")) || (command.startsWith("/worldedit:/eval")) || (command.startsWith("/worldedit:/evaluate")) || (command.startsWith("/worldedit:/calculate")) || (command.startsWith("/worldedit:/calc")) || (command.startsWith("/worldedit:/solve")) || (command.startsWith("/about")) || (command.startsWith("/icanhasbukkit"))  )
+        {
+          event.setCancelled(true);
+          player.sendMessage("§8» §cBrak dostepu do tej komendy §7(core.cmd).");
+        }
+      }
+    }
+    @EventHandler
+    public void playerCmdPre1(PlayerCommandPreprocessEvent event)
+    {
+      String command = event.getMessage().toLowerCase();
+      Player player = event.getPlayer();
+      if (!player.hasPermission("kotools.edycja.cmd"))
+    	  {
+        if ((command.matches("/kit")) || (command.matches("/ekit")))
+        {
+          event.setCancelled(true);
+          player.sendMessage("§8» §cNa poczatku edycji zestawy wylaczonne.");
+        }
+      }
+    }
+    
+    /*
+     * RandomTp
+     */
+    @EventHandler
+    public void onCraft(CraftItemEvent e)
+    {
+      if ((e.getInventory().getType().equals(InventoryType.WORKBENCH)) && (e.getSlotType().toString().equalsIgnoreCase("RESULT")) && 
+        (e.getCurrentItem().getType().name().equalsIgnoreCase("JUKEBOX"))) {
+        e.setCancelled(true);
+      }
+    }
+    
+    @EventHandler
+    public void onCraft1(CraftItemEvent e)
+    {
+      if ((e.getInventory().getType().equals(InventoryType.WORKBENCH)) && (e.getSlotType().toString().equalsIgnoreCase("RESULT")) && 
+        (e.getCurrentItem().getType().name().equalsIgnoreCase("BEACON"))) {
+        e.setCancelled(true);
+      }
+    }
+    @EventHandler
+    public void onInteract1(PlayerInteractEvent e)
+    {
+      if ((e.getAction() == Action.RIGHT_CLICK_BLOCK) && (e.getClickedBlock().getType() == Material.STONE_BUTTON))
+      {
+        Location block = e.getClickedBlock().getLocation().add(1.0D, 0.0D, 0.0D);
+        Location block1 = e.getClickedBlock().getLocation().add(-1.0D, 0.0D, 0.0D);
+        Location block2 = e.getClickedBlock().getLocation().add(0.0D, 0.0D, 1.0D);
+        Location block3 = e.getClickedBlock().getLocation().add(0.0D, 0.0D, -1.0D);
+        if ((block.getBlock().getType() == Material.JUKEBOX) || (block1.getBlock().getType() == Material.JUKEBOX) || (block2.getBlock().getType() == Material.JUKEBOX) || (block3.getBlock().getType() == Material.JUKEBOX))
+        {
+          Random rand = new Random();
+          double x = rand.nextDouble() * 2000.0D - 1000.0D;
+          double z = rand.nextDouble() * 2000.0D - 1000.0D;
+          for (Player players : getPlayersInRadius(e.getClickedBlock().getLocation(), 2))
+          {
+            Location loc = new Location(e.getPlayer().getWorld(), x, e.getPlayer().getWorld().getHighestBlockYAt((int)x, (int)z), z);
+            e.getPlayer().teleport(loc);
+            Location ploc = new Location(e.getPlayer().getWorld(), e.getPlayer().getLocation().getX(), e.getPlayer().getLocation().getY(), e.getPlayer().getLocation().getZ());
+            ploc.setY(e.getPlayer().getLocation().getY() + 5.0D);
+            e.getPlayer().teleport(ploc);
+            players.teleport(e.getPlayer().getLocation());
+            BarAPI.setMessage("§8§o» §6Zostales przeteleportowany w losowe miejsce na mapie!", 3);
+          }
+        }
+        if ((block.getBlock().getType() == Material.ENDER_STONE) || (block1.getBlock().getType() == Material.ENDER_STONE) || (block2.getBlock().getType() == Material.ENDER_STONE) || (block3.getBlock().getType() == Material.ENDER_STONE))
+        {
+          Random rand = new Random();
+          double x = rand.nextDouble() * 2000.0D - 1000.0D;
+          double z = rand.nextDouble() * 2000.0D - 1000.0D;
+          Location loc = new Location(e.getPlayer().getWorld(), x, e.getPlayer().getWorld().getHighestBlockYAt((int)x, (int)z), z);
+          e.getPlayer().teleport(loc);
+          Location ploc = new Location(e.getPlayer().getWorld(), e.getPlayer().getLocation().getX(), e.getPlayer().getLocation().getY(), e.getPlayer().getLocation().getZ());
+          ploc.setY(e.getPlayer().getLocation().getY() + 5.0D);
+          e.getPlayer().teleport(ploc);
+          BarAPI.setMessage("§8§o» §6Zostales przeteleportowany w losowe miejsce na mapie!", 3);
+        }
+      }
+    }
+    
+    @EventHandler
+    public void onJoin(PlayerJoinEvent e)
+    {
+      if ((getConfig().getBoolean("config.randomowe_miejsce_po_wejsciu")) && (!e.getPlayer().hasPlayedBefore()))
+      {
+        Random rand = new Random();
+        double x = rand.nextDouble() * 2000.0D - 1000.0D;
+        double z = rand.nextDouble() * 2000.0D - 1000.0D;
+        Location loc = new Location(e.getPlayer().getWorld(), x, e.getPlayer().getWorld().getHighestBlockYAt((int)x, (int)z), z);
+        e.getPlayer().teleport(loc);
+        Location ploc = new Location(e.getPlayer().getWorld(), e.getPlayer().getLocation().getX(), e.getPlayer().getLocation().getY(), e.getPlayer().getLocation().getZ());
+        ploc.setY(e.getPlayer().getLocation().getY() + 5.0D);
+        e.getPlayer().teleport(ploc);
+        e.getPlayer().sendMessage("§8§o» §6Zostales przeteleportowany w losowe miejsce na mapie!");
+        e.getPlayer().sendMessage("§8§o» §6Nowa edycja wystartowala do gry!");
+        ItemStack stonepickaxe = new ItemStack(Material.STONE_PICKAXE);
+        ItemStack cookedbeef = new ItemStack(Material.COOKED_BEEF, 128);
+        ItemStack enderchest = new ItemStack(Material.ENDER_CHEST);
+        e.getPlayer().getInventory().addItem(new ItemStack[] { stonepickaxe });
+        e.getPlayer().getInventory().addItem(new ItemStack[] { cookedbeef });
+        e.getPlayer().getInventory().addItem(new ItemStack[] { enderchest });
       }
     }
 }

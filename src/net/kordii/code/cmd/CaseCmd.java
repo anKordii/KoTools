@@ -15,7 +15,7 @@ public class CaseCmd implements CommandExecutor{
 	
 		public boolean onCommand(CommandSender sender, Command c, String s, String[] args){
 			if(!sender.hasPermission("case.cmd")){
-				ChatUtil.sendM(sender, "§8» &cBrak dostepu do tej komendy §7(case.cmd).");
+				ChatUtil.sendM(sender, "§8» §cBrak dostepu do tej komendy §7(case.cmd).");
 				return false;
 			}
 			if(args.length < 2){

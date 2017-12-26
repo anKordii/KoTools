@@ -1,5 +1,5 @@
 name: KoTools
-version: 1.0.9r
+version: 2.0s
 author: [Paulek22, Kordii]
 main: net.kordii.code.Main
 
@@ -31,3 +31,6 @@ commands:
    aliases: [rangi, shop, ranks]
  dragoncase:
     aliases: [premiumcase, case]
+ itemshop:
+     aliases: [is]
+
